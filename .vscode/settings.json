@@ -1,0 +1,12 @@
+{
+    // output: generate files to ...
+    // ~ = path starts relative from scss-file
+    "liveSassCompile.settings.formats":[
+        // ad a compressed version
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "~/../css/"
+        }
+    ]
+}
