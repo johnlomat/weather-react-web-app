@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Image, Form, Button, Placeholder } from "react-bootstrap";
+import { Container, Row, Col, Image, Form, Button } from "react-bootstrap";
 import { getInitialCountryWeather } from "../services/WeatherService";
 import JsonQuery from "json-query";
 
@@ -26,9 +26,6 @@ class NavbarComponent extends Component {
     return (
       <Container>
         <Row className="gy-sm-0 gy-4">
-          {/* <Placeholder animation="wave" className="col-auto pe-0">
-            <Placeholder sm={1} bg="bg-gray-500" className="px-8 h-100 rounded-3" />
-          </Placeholder> */}
           <Col sm="auto" className="pe-sm-0">
             <div className="py-2 px-3 bg-gray-200 rounded-3 d-sm-flex d-inline-block align-items-center">
               <Image

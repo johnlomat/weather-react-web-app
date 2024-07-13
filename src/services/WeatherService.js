@@ -29,12 +29,20 @@ export const getCurrentWeatherBulk = async () => {
 
   let cities = [];
 
-  const requestPromises = bulkRequests.map(async (bulkRequest) => {
-    const response = await axios.get(`${BASE_API_URL}&q=${bulkRequest}`);
-    cities.push(response.data);
-  });
+  try {
+    const requestPromises = bulkRequests.map(async (bulkRequest) => {
+      const response = await axios.get(`${BASE_API_URL}&q=${bulkRequest}`);
 
-  await Promise.all(requestPromises);
+      if (response.data.current && Object.keys(response.data.current).length !== 0) {
+        cities.push(response.data);
+      }
+    });
+
+    await Promise.all(requestPromises);
+  } catch (error) {
+    console.error("Error fetching bulk weather data:", error);
+    // Handle error as needed
+  }
 
   return cities;
 };
