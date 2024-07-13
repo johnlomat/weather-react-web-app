@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Image, Form, Button, Placeholder } from "react-bootstrap";
-import WeatherService from "../services/WeatherService";
+import { getInitialCountryWeather } from "../services/WeatherService";
 import JsonQuery from "json-query";
 
 class NavbarComponent extends Component {
@@ -14,7 +14,7 @@ class NavbarComponent extends Component {
   }
 
   componentDidMount() {
-    WeatherService.getInitialCountryWeather().then((res) => {
+    getInitialCountryWeather().then((res) => {
       this.setState({
         currentWeather: res.data,
         isLoading: false,

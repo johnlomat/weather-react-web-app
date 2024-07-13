@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Col, Container, Row, Card, Image } from "react-bootstrap";
-import WeatherService from "../services/WeatherService";
+import { getCurrentWeatherBulk } from "../services/WeatherService";
 import JsonQuery from "json-query";
 
 class TodayOverviewComponent extends Component {
@@ -13,7 +13,7 @@ class TodayOverviewComponent extends Component {
   }
 
   async componentDidMount() {
-    this.setState({ currentWeatherBulk: await WeatherService.getCurrentWeatherBulk() });
+    this.setState({ currentWeatherBulk: await getCurrentWeatherBulk() });
   }
 
   render() {
